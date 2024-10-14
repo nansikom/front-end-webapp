@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            button {
+                color:slateblue;
+                padding: 30px 30px;
+                border-radius: 8px;
+                font-size:16px;
+                cursor:pointer;
+                background-color: burlywood;
+            }
+            body{
+                color:black;
+                background-color: beige;
+            }
+            #displayText {
+                color:yellowgreen
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="singleLineTextBox" placeholder="Enter text here">
+
+        <h1>Looking to perfect your resume with just one click</h1>
+        <h2>Your in the right place my dear</h2>
+        <h3>Press start button to input your master</h3>
+        <button id ="button">Start</button>
+        <p id="displayText"></p>
+        
+        <script>
+            const button = document.getElementById("button")
+            const textDisplay= document.getElementById("displayText")
+            button.addEventListener("click", function(){
+                    textDisplay.textContent= "Hello from Oregon"
+            });
+            
+        </script>
+        <div style= "display:flex; gap:20px; justify-content: space-around;">
+
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" name="files" accept=".pdf,.docx,.txt" multiple>
+                <input type="submit" value ="Upload">
+            </form>
+            <form action="/uploadform1" method="POST" enctype="multipart/form-data">
+                <input type="file" name="files" accept=".pdf,.docx,.txt" multiple>
+                <input type="submit" value ="Upload form 1">
+            </form>
+        </div>
+    <div style= "display: flex; gap:20px; justify-content: space-around;"></div>
+        <div class="text-box">
+            {% if extracted_texts %}
+                <h2>Extracted Texts</h2>
+            
+                {%for text in extracted_texts %}
+                    <div style="border:1px solid black; width:45%; padding:10px">
+                        <pre style="white-space: pre-wrap; word-wrap: break-word; max-height: 500px; overflow-y: scroll;">
+                            {{ text }}
+                        </pre>
+                    </div>
+                {% endfor %}
+            {% else %}
+                No texts extracted yet.
+            
+            {% endif %}
+        </div>
+    
+    </div>
+    <div style= "display: flex; gap:20px; justify-content: space-around;"></div>
+
+        
+           {% if extracted_texts1 %}
+            
+                {%for text in extracted_texts1 %}
+                    <div style="border:1px solid black; width:45%; padding:10px">
+                        <pre style="white-space: pre-wrap; word-wrap: break-word; max-height: 500px; overflow-y: scroll;">
+                                {{ text }}
+                        </pre>
+                    </div>
+                {% endfor %}
+           
+            {% endif %}
+        </div>
+    
+       
+    
+    </div>
+    
+    
+    
+
+    
+    
+
+    
+    </body>
+</html>     
+{%for text in extracted_texts1 %}
+<div style="border:1px solid black; width:45%; padding:10px">
+    <pre style="white-space: pre-wrap; word-wrap: break-word; max-height: 500px; overflow-y: scroll;">
+            {{ text }}
+    </pre>
+</div>
+{% endfor %}

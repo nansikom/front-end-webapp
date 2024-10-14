@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            button {
+                color:slateblue;
+                padding: 30px 30px;
+                border-radius: 8px;
+                font-size:16px;
+                cursor:pointer;
+                background-color: burlywood;
+            }
+            body{
+                color:black;
+                background-color: beige;
+            }
+            #displayText {
+                color:yellowgreen
+            }
+            .text-box{
+                padding:10px;
+                border: 1px solid black;
+                width:1000px;
+                height:1000px
+
+            }
+            textarea{
+                background-color:goldenrod;
+                padding: 10px;
+                width: 500px;
+                color:white;
+                height: 600px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
+
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="singleLineTextBox" placeholder="Enter text here">
+
+        <h1>Looking to perfect your resume with just one click</h1>
+        <h2>Your in the right place my dear</h2>
+        <h3>Press start button to input your master</h3>
+        <button id ="button">Start</button>
+        <p id="displayText"></p>
+        
+        <script>
+            const button = document.getElementById("button")
+            const textDisplay= document.getElementById("displayText")
+            button.addEventListener("click", function(){
+                    textDisplay.textContent= "Hello from Oregon"
+            });
+            
+        </script>
+        <div style= "display:flex; gap:20px; justify-content: space-around;">
+
+            <form action="/upload" method="POST" enctype="multipart/form-data">
+                <input type="file" name="files" accept=".pdf,.docx,.txt" multiple>
+                <input type="submit" value ="Upload">
+            </form>
+            <form action="/uploadform1" method="POST" enctype="multipart/form-data">
+                <input type="file" name="files" accept=".pdf,.docx,.txt" multiple>
+                <input type="submit" value ="Upload form 1">
+            </form>
+        </div>
+    <div style= "display: flex; gap:20px; justify-content: space-around;">
+        <div class="text-box">
+            <h2>Extracted text 1</h2>
+            <textarea id="extractedText" rows="10" cols=50  placeholder="Myy">
+
+                {% if extracted_texts %}
+                {{ extracted_texts[0] | e }}
+
+                {% else %}
+                    No texts extracted yet.
+                {% endif %}
+            </textarea>
+        </div>
+    
+    
+
+        <div class="text-box">
+            <h2>Extracted text 2</h2>
+            <textarea id="extractedText1" rows="10" cols=50  placeholder="Myy">
+                {% if extracted_texts1 %}
+                    {{ extracted_texts1[0] | e }}
+                {% else %}
+                No texts extracted yet.
+                {% endif %}
+            </textarea>
+        </div>
+    
+       
+    
+    
+    </div>
+    
+    
+
+    
+    </body>
+</html>     
+ 
