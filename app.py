@@ -78,7 +78,7 @@ def wordextraction(text, text2):
             if word in token:
                 commonwords.append(word)
                 print("cats drink milk")
-        return cats
+        return commonwords
 if __name__== '__main__':
   app.run(debug=True)
   '''
