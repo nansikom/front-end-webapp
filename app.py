@@ -70,13 +70,13 @@ def wordextraction(text, text2):
         lowerletter=cleanedsentencestp2.lower()
         token=[]
         token= lowerletter.split()
-        cats=[]
+        commonwords=[]
         print(f"Tokens from text 1: {tokens}")
         print(f"Token from text 2: {token}")
 
         for word in tokens:
             if word in token:
-                cats.append(word)
+                commonwords.append(word)
                 print("cats drink milk")
         return cats
 if __name__== '__main__':
