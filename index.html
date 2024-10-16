@@ -8,11 +8,12 @@
                 border-radius: 8px;
                 font-size:16px;
                 cursor:pointer;
-                background-color: burlywood;
+                background-color: lightblue;
             }
             body{
                 color:black;
-                background-color: beige;
+                background-color: bisque;
+                
             }
             #displayText {
                 color:yellowgreen
@@ -25,7 +26,7 @@
 
             }
             textarea{
-                background-color:goldenrod;
+                background-color:lightskyblue;
                 padding: 10px;
                 width: 500px;
                 color:white;
@@ -43,7 +44,8 @@
         <h3>Press start button to input your master</h3>
         <button id ="button">Start</button>
         <p id="displayText"></p>
-        
+        <button id ="button">Submit</button>
+
         <script>
             const button = document.getElementById("button")
             const textDisplay= document.getElementById("displayText")
@@ -51,13 +53,10 @@
                     textDisplay.textContent= "Hello from Oregon"
             });
             
+            
         </script>
+        
         <div style= "display:flex; gap:20px; justify-content: space-around;">
-
-            <form action="/upload" method="POST" enctype="multipart/form-data">
-                <input type="file" name="files" accept=".pdf,.docx,.txt" multiple>
-                <input type="submit" value ="Upload">
-            </form>
             <form action="/uploadform1" method="POST" enctype="multipart/form-data">
                 <input type="file" name="files" accept=".pdf,.docx,.txt" multiple>
                 <input type="submit" value ="Upload form 1">
@@ -66,29 +65,22 @@
     <div style= "display: flex; gap:20px; justify-content: space-around;">
         <div class="text-box">
             <h2>Extracted text 1</h2>
-            <textarea id="extractedText" rows="10" cols=50  placeholder="Myy">
+            <textarea id="extractedtexts1" rows="10" cols=50  placeholder="Myy">
 
-                {% if extracted_texts %}
-                {{ extracted_texts[0] | e }}
-
+                {% if extracted_texts1 %}
+                    {% for text in extracted_texts1%}
+                    {{ text | e }}
+                    {% endfor %}
                 {% else %}
                     No texts extracted yet.
                 {% endif %}
             </textarea>
+
         </div>
     
     
 
-        <div class="text-box">
-            <h2>Extracted text 2</h2>
-            <textarea id="extractedText1" rows="10" cols=50  placeholder="Myy">
-                {% if extracted_texts1 %}
-                    {{ extracted_texts1[0] | e }}
-                {% else %}
-                No texts extracted yet.
-                {% endif %}
-            </textarea>
-        </div>
+       
     
        
     
